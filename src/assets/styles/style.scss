@@ -1,0 +1,371 @@
+@import url(./reset.scss); 
+@import url(./fonts.scss);
+
+$as:  AlegreyaSansSC;
+$pn: ProximaNova;
+$os: OpenSans;
+
+$dark: #101010;
+$light: #fff;
+$silver: #939393;
+
+@mixin jcsb {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+@mixin transition {
+transition: all .3s;
+}
+
+body {
+    font-family: $os;
+    font-weight: 600;
+}
+
+.container {
+    max-width: 1025px;
+    margin: 0 auto;
+    padding: 0 15px;
+    width: 100%;
+}
+
+
+.nav {
+    background: $dark;
+    position: fixed;
+    width: 100%;
+    z-index: 2;
+    &__logo {
+        color: $light;
+        font-family: $as;
+        font-weight: 700;
+        font-size: 28px;
+        line-height: 60px;
+        text-align: center;
+        text-transform: uppercase;
+        text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        margin-top: 10px;
+    }
+    
+    &__menu {
+        min-height: 70px;
+        @include jcsb;
+       
+    }
+    &__fix {
+        height: 70px;
+    }
+    &__wrapper {
+        @include jcsb;
+        
+    }
+    &__menu-link {
+        background: $light;
+        padding: 11.5px 40.5px;
+
+        font-family: $pn;
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 17px;
+        &:not(last-child) {
+            margin-right: 12px;
+        }
+        color: #000000;
+        text-decoration: none;
+        @include transition;
+        &:hover {
+            background: $silver;
+            color: $light;
+        }
+    }
+
+    
+}
+
+
+.hero {
+    text-align: center;
+    background: url(./../img/backgrounds/pilots-bg.png), black;
+    background-position: center 0;
+    background-repeat: no-repeat;
+    position: relative;
+    background-size: cover;
+    padding-top: 140px;
+    &__title {
+        font-family: $as;
+        font-weight: 700;
+        font-size: 50px;
+        line-height: 60px;
+        color: $light;
+        margin-bottom: 5px;
+        position: relative;
+        z-index: 1;
+        display: flex;
+        justify-content: center;
+    }
+    .bg-linear {
+        background: radial-gradient(50% 50% at 50% 50%, #000000 0%, rgba(0, 0, 0, 0) 100%);
+        position: absolute;
+        top: 0;
+        width: 593px;
+        height: 156px;
+        margin: 0 auto;
+        z-index: -1;
+    }
+    .bg-radial {
+        background: radial-gradient(50% 50% at 50% 50%, #000000 0%, rgba(0, 0, 0, 0) 100%);
+        height: 204px;
+        width: 1017px;
+        margin: 0 auto;
+        display: flex;
+        
+        justify-content: center;
+        flex-direction: column;
+    }
+    .liner-grad {
+        background: linear-gradient(180deg, #000000 0%, rgba(0, 0, 0, 0.55) 23.22%, rgba(0, 0, 0, 0.14) 42.37%, rgba(0, 0, 0, 0) 56.3%);
+        transform: matrix(1, 0, 0, -1, 0, 0);
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 282px;
+    }
+    &__subtitle {
+        font-family: $as;
+        font-weight: 700;
+        font-size: 30px;
+        line-height: 36px;
+        color: $light;   
+        z-index: 2; 
+       
+    }
+    &__controls-buy {
+        padding: 11.5px 59.5px;
+        margin-right: 0;
+    }
+    &__controls {
+        @include jcsb;
+        margin-top: 70px;
+        padding-bottom: 55px;
+        position: relative;
+        z-index: 2;
+    }
+    &__controls-arrow {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 40px;
+        width: 40px;
+        background: rgba(0, 0, 0, 0);
+        border: 2px solid $light;
+        cursor: pointer;
+
+        @include transition;
+        .hero__controls-img {
+            fill: $light;
+        }
+        &:hover {
+            background: $light;
+            .hero__controls-img {
+                fill: $dark;
+            }
+        }
+    }
+    &__controls-next {
+        transform: rotate(180deg);
+    }
+    
+}
+
+.buy-tickets {
+    &__wrapper {
+        @include jcsb;
+        margin-top: 31px;
+        font-family: $as;
+        font-weight: 500;
+        font-size: 35px;
+        line-height: 40px;
+        color: $dark;
+        margin-bottom: 16px;
+    }
+    &__page--silver {
+        color: #E0E0E0;  
+    }
+}
+
+.card-profile {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid $dark;
+    padding: 17px;
+    height: 109px;
+    margin-bottom: 47px;
+    &__title {
+        font-weight: 700;
+        font-size: 17px;
+        line-height: 23px;
+        text-transform: capitalize;
+        margin-bottom: 4px;
+    }
+    &__subtitle {
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 17px;
+        color: rgba(0, 0, 0, 0.41);
+    }
+    &__link {
+        font-weight: 600;
+        font-size: 11px;
+        line-height: 15px;
+        text-transform: capitalize;
+        color: #FFFFFF;
+        background: #101010;
+        border: 1px solid #0D1E4B;
+        width: fit-content;
+        padding: 10px 20px;
+        text-decoration: none;
+        margin-top: auto;
+        @include transition;
+        &:hover {
+            background: $silver;
+            border: 1px solid $silver;
+        }
+    }
+}
+
+.about {
+    margin-bottom: 47px;
+    @include jcsb;
+    align-items: flex-start;
+
+    &__title {
+        font-family: $as;
+        font-weight: 500;
+        font-size: 35px;
+        line-height: 40px;
+        margin-bottom: 16px;
+    }
+    .scroll-bar {
+        position: relative;
+        &::before {
+            position: absolute;
+            content: '';
+            z-index: 39;
+            height: 100%;
+            width: 2px;
+            opacity: 0.2;
+            display: block;
+            background: #0D1E4B;
+            left: 2px;
+            top: 0;
+            box-shadow: 0 0 4px 4px rgba(0, 0, 0, .4);
+            bottom: 0;
+            right: 0;
+        }
+
+    }
+
+    &__text-wrap {
+        max-height: 230px;
+        overflow-y: auto;
+        direction: rtl;
+       
+        &::-webkit-scrollbar-track {
+            display: none;
+            
+        }
+        &::-webkit-scrollbar
+        {
+            width: 10px;
+            
+        }
+        &::-webkit-scrollbar-thumb
+        {
+            background-color: #0D1E4B;
+        }
+    }
+    
+    &__text-title {
+        margin-bottom: 20px;
+        font-weight: 700;
+        font-size: 15px;
+        line-height: 20px;
+        max-width: 392px;
+        
+    }
+    .scroll-left {
+        direction: ltr;
+        margin-left: 32px;
+    }
+    &__text {
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 24px;
+        color: $silver;
+        max-width: 326px;
+        margin-bottom: 40px;
+        
+    }
+
+    &__right-wrap {
+        flex: 0 0 559px;
+        padding: 13px 25px 25px;
+        border: 1px solid $silver;
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__form-title {
+        font-family: $os;
+        font-weight: 600;
+        font-size: 18px;
+        line-height: 40px;
+        margin-bottom: 9px;
+        
+    }
+
+    &__form-textarea {
+        border: 1px solid #0D1E4B;
+        min-height: 134px;
+        resize: none;
+        outline: none;
+        padding: 10px 20px;
+        margin-bottom: 16px;
+        &::placeholder {
+            font-weight: 600;
+            font-size: 11px;
+            line-height: 15px;
+           
+
+
+            color: #969696;
+        }
+    }
+    &__form-send {
+        margin-left: auto;
+        cursor: pointer;
+    }
+    
+}
+
+.about-group {
+    @include jcsb;
+    margin-bottom: 38px;
+    &__title {
+        font-family: $as;
+        font-weight: 500;
+        font-size: 35px;
+    }
+    align-items: flex-start;
+
+    &__text {
+        flex: 0 1 838px;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 24px;
+        color: $silver;
+    }
+}
