@@ -7,6 +7,11 @@ const routes = [
     name: 'home',
     component: MainHome
   },
+  {
+    path: '/user/:id',
+    name: 'UserPage',
+    component: () => import('../views/UserPage.vue')
+  },
   
 ]
 

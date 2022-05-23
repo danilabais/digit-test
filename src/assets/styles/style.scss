@@ -369,3 +369,172 @@ body {
         color: $silver;
     }
 }
+
+.user-data {
+    border: 1px solid black;
+    margin-top: 36px;
+    &__wrapper {
+        border-left: 1px solid black;
+        border-right: 1px solid black;
+    }
+
+    &__name {
+        border-bottom: 1px solid black;
+        font-family: $as;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 35px;
+        line-height: 40px;
+        padding: 11px 18px 13px 18px;
+        position: relative;
+        &::after {
+            content: '';
+            position: absolute;
+            left: -100vw;
+            bottom: 0;
+            height: 1px;
+            right: 100%;
+            background: black;
+            transform: translateY(1px);
+        }
+        &::before {
+            content: '';
+            position: absolute;
+            right: -100vw;
+            bottom: 0;
+            height: 1px;
+            left: 100%;
+            background: black;
+            transform: translateY(1px);
+        }
+    }
+    &__hr {
+        width: 1px;
+        height: 100%;
+        background: black;
+    }
+
+    &__info {
+        @include jcsb();
+        height: 44px;
+    }
+    &__info > li {
+        font-family: $os;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 17px;
+        padding: 14px 22px 10px 22px;
+    }
+
+
+    &__btn-wrap {
+        display: flex;
+        justify-content: center;
+        height: 100%;
+        margin-right: -1px;
+
+       
+
+    }
+    &__message {
+        margin: 0;
+        height: 100%;
+        text-transform: none;
+        cursor: pointer;
+    }
+    &__hr--white {
+        background: #fff;
+    }
+    &__suggest {
+        cursor: pointer;
+        margin: 0;
+        height: 100%;
+        text-transform: none;
+    }
+    margin-bottom: 25px;
+}
+
+
+
+.user-posts {
+    border: 1px solid black;
+    padding: 16px 0 33px 0;
+    margin-bottom: 23px;
+
+    &__wrapper {
+        @include jcsb();
+        gap: 20px;
+        
+        
+    }
+    
+    &__post {
+        padding: 14px 22px 17px 35px;
+        border: 1px solid black;
+        flex: 1 1 auto;
+    }
+
+    &__posts-header {
+        @include jcsb();
+        margin-bottom: 4px;
+    }
+
+    &__posts-title {
+        font-style: normal;
+        font-weight: 700;
+        font-size: 17px;
+        line-height: 23px;
+        color: #000000;
+    }
+
+    &__post-date {
+        font-style: normal;
+        font-weight: 700;
+        font-size: 12px;
+        line-height: 16px;
+
+    }
+
+    &__text {
+        font-style: normal;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 17px;
+        color: rgba(0, 0, 0, 0.41);
+        max-width: 421px;
+    }
+}
+
+
+
+.public {
+
+    &__wrap {
+        @include jcsb()
+    }
+
+    &__img {
+        height: 154px;
+        width: 154px;
+        border: 1px solid black;
+        &:nth-child(1) {
+            background:   rgba(99, 180, 238, 1);
+        }
+        &:nth-child(2) {
+            background:   rgba(43, 159, 242, 1);
+        }
+        &:nth-child(3) {
+            background: rgba(84, 127, 237, 1);
+        }
+        &:nth-child(4) {
+            background: rgba(67, 102, 225, 1);
+        }
+        &:nth-child(5) {
+            background: rgba(32, 64, 176, 1);
+        }
+        &:nth-child(6) {
+            background: rgba(12, 37, 124, 1);
+        }
+    }
+}

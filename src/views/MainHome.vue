@@ -20,5 +20,11 @@ export default {
     AboutUs,
     AboutGroup,
   },
+  methods(){
+
+  },
+  async created(){
+    await this.$store.dispatch('fetchUsers')
+  }
 }
 </script>
