@@ -12,6 +12,11 @@ const routes = [
     name: 'UserPage',
     component: () => import('../views/UserPage.vue')
   },
+  {
+    path: '/more-info/:id',
+    name: 'MoreInfo',
+    component: () => import('../views/MoreInfo.vue')
+  },
   
 ]
 

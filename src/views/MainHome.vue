@@ -1,17 +1,15 @@
 <template>
-  <HeroSlider/>
-  <BuyTickets/>
-  <AboutUs/>
-  <AboutGroup/>
+  <HeroSlider />
+  <BuyTickets />
+  <AboutUs />
+  <AboutGroup />
 </template>
 
-
-
 <script>
-import HeroSlider from '@/components/HeroSlider.vue'
-import BuyTickets from '@/components/BuyTickets.vue'
-import AboutUs from '@/components/AboutUs.vue'
-import AboutGroup from '@/components/AboutGroup.vue'
+import HeroSlider from "@/components/HeroSlider.vue";
+import BuyTickets from "@/components/BuyTickets.vue";
+import AboutUs from "@/components/AboutUs.vue";
+import AboutGroup from "@/components/AboutGroup.vue";
 
 export default {
   components: {
@@ -20,11 +18,8 @@ export default {
     AboutUs,
     AboutGroup,
   },
-  methods(){
-
+  async created() {
+    await this.$store.dispatch("fetchUsers");
   },
-  async created(){
-    await this.$store.dispatch('fetchUsers')
-  }
-}
+};
 </script>

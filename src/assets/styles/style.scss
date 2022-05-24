@@ -1,6 +1,12 @@
 @import url(./reset.scss); 
 @import url(./fonts.scss);
+@import url(./loader.scss);
 
+///////////////////////////////////////////////////////////////////////////////////////////
+
+.hidden {
+    overflow: hidden;
+}
 $as:  AlegreyaSansSC;
 $pn: ProximaNova;
 $os: OpenSans;
@@ -18,6 +24,8 @@ $silver: #939393;
 @mixin transition {
 transition: all .3s;
 }
+
+///////////////////////////////////////////////////////////////////////////////////////////
 
 body {
     font-family: $os;
@@ -47,6 +55,7 @@ body {
         text-transform: uppercase;
         text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
         margin-top: 10px;
+        text-decoration: none;
     }
     
     &__menu {
@@ -87,7 +96,7 @@ body {
 
 .hero {
     text-align: center;
-    background: url(./../img/backgrounds/pilots-bg.png), black;
+    background: url(./../img/backgrounds/pilots-bg.png), $dark;
     background-position: center 0;
     background-repeat: no-repeat;
     position: relative;
@@ -220,7 +229,6 @@ body {
         font-weight: 600;
         font-size: 11px;
         line-height: 15px;
-        text-transform: capitalize;
         color: #FFFFFF;
         background: #101010;
         border: 1px solid #0D1E4B;
@@ -228,6 +236,7 @@ body {
         padding: 10px 20px;
         text-decoration: none;
         margin-top: auto;
+        cursor: pointer;
         @include transition;
         &:hover {
             background: $silver;
@@ -371,15 +380,19 @@ body {
 }
 
 .user-data {
-    border: 1px solid black;
+    border: 1px solid $dark;
     margin-top: 36px;
     &__wrapper {
-        border-left: 1px solid black;
-        border-right: 1px solid black;
+        border-left: 1px solid $dark;
+        border-right: 1px solid $dark;
     }
+    &__info--border {
+        border-bottom: 1px solid #000;
+    }
+    
 
     &__name {
-        border-bottom: 1px solid black;
+        border-bottom: 1px solid $dark;
         font-family: $as;
         font-style: normal;
         font-weight: 500;
@@ -394,7 +407,7 @@ body {
             bottom: 0;
             height: 1px;
             right: 100%;
-            background: black;
+            background: $dark;
             transform: translateY(1px);
         }
         &::before {
@@ -404,14 +417,14 @@ body {
             bottom: 0;
             height: 1px;
             left: 100%;
-            background: black;
+            background: $dark;
             transform: translateY(1px);
         }
     }
     &__hr {
         width: 1px;
         height: 100%;
-        background: black;
+        background: $dark;
     }
 
     &__info {
@@ -426,7 +439,9 @@ body {
         line-height: 17px;
         padding: 14px 22px 10px 22px;
     }
-
+    &__info--space {
+        justify-content: space-around ;
+    }
 
     &__btn-wrap {
         display: flex;
@@ -458,26 +473,31 @@ body {
 
 
 .user-posts {
-    border: 1px solid black;
+    border: 1px solid $dark;
     padding: 16px 0 33px 0;
     margin-bottom: 23px;
 
     &__wrapper {
         @include jcsb();
         gap: 20px;
+        align-items: stretch;
+        flex-wrap: wrap;
         
         
     }
     
     &__post {
         padding: 14px 22px 17px 35px;
-        border: 1px solid black;
-        flex: 1 1 auto;
+        border: 1px solid $dark;
+        flex: 1 1 30%;
+        display: flex;
+        flex-direction: column;
     }
 
     &__posts-header {
         @include jcsb();
         margin-bottom: 4px;
+        align-items: flex-start;
     }
 
     &__posts-title {
@@ -486,6 +506,7 @@ body {
         font-size: 17px;
         line-height: 23px;
         color: #000000;
+        flex: 0 1 300px;
     }
 
     &__post-date {
@@ -500,16 +521,26 @@ body {
         font-style: normal;
         font-weight: 400;
         font-size: 12px;
+        margin-bottom: 20px;
         line-height: 17px;
         color: rgba(0, 0, 0, 0.41);
-        max-width: 421px;
+        
+    }
+    &__all-posts {
+       display: block;
+       margin-left: auto;
+       margin-top: 20px;
+       text-transform: none;
+       margin-top: auto;
+       cursor: pointer;
+      
     }
 }
 
 
 
 .public {
-
+    margin-bottom: 40px;
     &__wrap {
         @include jcsb()
     }
@@ -517,7 +548,7 @@ body {
     &__img {
         height: 154px;
         width: 154px;
-        border: 1px solid black;
+        border: 1px solid $dark;
         &:nth-child(1) {
             background:   rgba(99, 180, 238, 1);
         }
@@ -536,5 +567,96 @@ body {
         &:nth-child(6) {
             background: rgba(12, 37, 124, 1);
         }
+    }
+}
+
+
+.comments {
+    &__item {
+        border: 1px solid $dark;
+        padding: 20px;
+        margin-bottom: 20px;
+    }
+
+    &__header {
+        display: flex;
+        justify-content: right;
+        margin-bottom: 20px;
+    }
+    
+    &__name {
+        border-right: 1px solid #000;
+        margin-right: 20px;
+        padding-right: 20px;
+    }
+}
+
+.modal {
+    &__area {
+        position: fixed;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(87, 87, 87, 0.534);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+        opacity: 0;
+        visibility: hidden;
+        @include transition();
+    }
+    &__area.active {
+        opacity: 1;
+        visibility: visible;
+    }
+    &__wrap {
+        width: 400px;
+        height: 340px;
+        background: #fff;
+        border-radius: 20px;
+        border: 1px solid $dark;
+        padding: 20px;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+    &__who-wrap {
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+        margin-bottom: 20px;
+    }
+    &__name {
+        flex: 0 1 48%;
+        outline: none;
+        padding: 10px;
+    }
+    
+    &__mail {
+        outline: none;
+        padding: 10px;
+        flex: 0 1 48%;
+    }
+    &__btn-wrap {
+        padding-bottom: 20px;
+    }
+    &__text {
+        width: 89%;
+    }
+    &__btns-wrap {
+        display: flex;
+        margin-left: auto;
+        & > :first-child {
+            margin-right: 10px;
+        }
+    }
+}
+
+.navigation {
+    @include jcsb();
+    &__next {
+        margin-left: auto;
     }
 }

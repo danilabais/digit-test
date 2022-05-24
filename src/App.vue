@@ -1,15 +1,14 @@
 <template>
-  <MainHeader/>
-  <router-view/>
+  <MainHeader />
+  <router-view />
 </template>
 
 <script>
-import MainHeader from '@/components/MainHeader.vue'
-import '@/assets/styles/style.scss'
+import MainHeader from "@/components/MainHeader.vue";
+import "@/assets/styles/style.scss";
 export default {
   components: {
     MainHeader,
-    
   },
-}
+};
 </script>
