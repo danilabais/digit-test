@@ -4,7 +4,7 @@
 2) Лоадер (Виден при слабом интернете)
 3) Анимации
 
-Стек: Vue, Vuex, SCSS, BEM
+Стек: Vue, Vuex, SCSS, BEM, Splide
 
 <a href="https://danilabais.github.io/digit-test/">Ссылка на тестовое задание</a>
 
