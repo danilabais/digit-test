@@ -362,7 +362,7 @@ body {
 
 .about-group {
     @include jcsb;
-    margin-bottom: 38px;
+    padding-bottom: 38px;
     &__title {
         font-family: $as;
         font-weight: 500;
@@ -656,6 +656,7 @@ body {
 
 .navigation {
     @include jcsb();
+    padding-bottom: 38px;
     &__next {
         margin-left: auto;
     }
